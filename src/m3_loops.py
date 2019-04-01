@@ -6,9 +6,9 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
+         and Veronica Gawarecki.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
+import math
 ###############################################################################
 # Students:
 #
@@ -46,7 +46,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ###########################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -136,7 +136,12 @@ def run_test_practice_problem3():
     #             that they are adequate tests!
     ###########################################################################
 
-
+    tests2 = [st.SimpleTestCase(practice_problem3, [1, 2, 3],
+                                [1]),
+              st.SimpleTestCase(practice_problem3, [0,0,0],
+                                []),
+              ]
+    st.SimpleTestCase.run_tests('practice_problem3', tests2)
 def practice_problem3(start, n, threshold):
     """
     What comes in:
@@ -209,7 +214,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
@@ -218,6 +223,23 @@ def practice_problem3(start, n, threshold):
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
 
+
+    m=0
+    new=[]
+    if n==0:
+        return new
+    if threshold>math.sqrt(2):
+        for k in range (start,n):
+            new=new+[k]
+        return new
+    while True:
+
+        if math.sin(start)+math.cos(start)>threshold:
+            new=new+[start]
+            m=m+1
+            if m==n:
+                return new
+        start=start+1
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
